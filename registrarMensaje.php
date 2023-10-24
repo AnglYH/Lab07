@@ -15,7 +15,7 @@ $sentencia->setFetchMode(PDO::FETCH_ASSOC);
 $sentencia->execute([$libroId]);
 $libro = $sentencia->fetch();
 
-$mensaje = 'Se ha confirmado la compra del libro ' . $libro['titulo'] . ' por el usuario ' . $usuario['nombre'];
+$mensaje = $usuario['nombre'] . ', le informamos que se ha completado correctamente la compra del libro: ' . $libro['titulo'] ;
 
 $sentencia = $bd->prepare("INSERT INTO mensajePago(mensaje,id_usuario,id_libro) VALUES (?,?,?);");
 $resultado = $sentencia->execute([$mensaje, $usuario['id'], $libro['id']]);

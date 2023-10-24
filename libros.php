@@ -32,7 +32,7 @@
 
             <?php if (isset($_GET['sendMessage'])): ?>
                 <div class="alert alert-<?php echo $_GET['sendMessage'] === 'success' ? 'success' : 'danger' ?> alert-dismissible fade show" role="alert">
-                    <strong><?php echo $_GET['sendMessage'] === 'success' ? 'se ha enviado el mensaje!' : 'No se ha podido enviar el mensaje!' ?></strong>
+                    <strong><?php echo $_GET['sendMessage'] === 'success' ? 'Se ha enviado el mensaje!' : 'No se ha podido enviar el mensaje!' ?></strong>
                 </div>
             <?php endif; ?>
 
@@ -121,7 +121,7 @@
                                 <td><?php echo $dato->isbn; ?></td>
                                 <td><a class="text-success" href="editarLibro.php?codigo=<?php echo $dato->id; ?>"><i class="bi bi-pencil-square"></i></a></td>
 
-                                <td><a class="text-primary" href="registrarMensaje.php?libroId=<?php echo $dato->id; ?>"><i class="bi bi-cursor"></i></a></td>
+                                <td><a class="text-primary" href="registrarMensaje.php?libroId=<?php echo $dato->id; ?>"><i class="bi bi-bag-check-fill"></i></a></td>
  
                                 <td><a onclick="return confirm('Estas seguro de eliminar?');" class="text-danger" href="eliminarLibro.php?codigo=<?php echo $dato->id; ?>"><i class="bi bi-trash"></i></a></td>
                             </tr>

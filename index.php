@@ -13,38 +13,62 @@
 <html>
 <head>
     <title>Ingresar Datos</title>
+    <style>
+    .card-container {
+        display: flex;
+        justify-content: center; /* Centra horizontalmente los elementos */
+        align-items: center;
+        margin: auto 70%;
+        width: 150%;
+        height: 70vh;
+
+    }
+    .col-md-4 {
+        display: inline-block; /* Agrega un margen entre los elementos */
+        text-align: center; /* Centra horizontalmente los elementos */
+    }
+    .card {
+        margin: 0 10px; /* Agrega margen a los elementos si es necesario */
+        padding: 20px;
+        border: 3px solid lightblue;
+        border-radius: 10px;
+    }
+</style>
 </head>
 <body>  
-    <div>
+    <div class="col-md-4 ">
         <?php if (isset($_GET['errorLogin'])): ?>
         <div class="alert alert-danger">El usuario no existe</div>
         <?php endif; ?>
-        <div>
-            <h2>Ingresar</h2>
-            <p>Ingrese su nombre y número de celular para ingresar</p>
-            <form action="ingresar.php" method="POST">
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" required><br><br>
+        <div class="card-container">
+            <div class="card">  
+                <h2>Ingresar</h2>
+                <p>Ingrese su nombre y número de celular para ingresar</p>
+                <form class="p-4" action="ingresar.php" method="POST">
+                    <label class="form-label" for="nombre">Nombre:</label>
+                    <input class="form-control" type="text" name="nombre" required><br><br>
 
-                <label for="celular">Celular:</label>
-                <input type="text" name="celular" required><br><br>
+                    <label class="form-label" for="celular">Celular:</label>
+                    <input class="form-control" type="text" name="celular" required><br><br>
 
-                <input type="submit" value="Ingresar">
-            </form>
+                    <input class="btn btn-primary" type="submit" value="Ingresar">
+                </form>
+            </div>
+            <div class="card">
+                <h2>Registrarse</h2>
+                <p>Ingrese su nombre y número de celular para crear un usuario</p>
+                <form class="p-4" action="procesarUsuario.php" method="POST">
+                    <label class="form-label" for="nombre">Nombre:</label>
+                    <input class="form-control" type="text" name="nombre" required><br><br>
+
+                    <label class="form-label" for="celular">Celular:</label>
+                    <input class="form-control" type="text" name="celular" required><br><br>
+
+                    <input class="btn btn-primary" type="submit" value="Registrarse">
+                </form>
+            </div>
         </div>
-        <div>
-            <h2>Registrarse</h2>
-            <p>Ingrese su nombre y número de celular para crear un usuario</p>
-            <form action="procesarUsuario.php" method="POST">
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" required><br><br>
 
-                <label for="celular">Celular:</label>
-                <input type="text" name="celular" required><br><br>
-
-                <input type="submit" value="Registrarse">
-            </form>
-        </div>
     </div>
 </body>
 </html>
